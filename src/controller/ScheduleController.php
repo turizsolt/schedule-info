@@ -1,5 +1,5 @@
 <?php
-    require_once('DummyScheduleService.php');
+    require_once('../model/DummyScheduleService.php');
 
     // 1. bemenő adatok, validálni
     if(!isset($_GET['stop']) || !preg_match('/^[0-9]*$/',$_GET['stop'])) {
@@ -13,6 +13,6 @@
     $departures = $scheduleService->getDepartures($stop);
 
     // 3. meghívunk egy view-t
-    require('ScheduleView.php');
+    require('../view/ScheduleView.php');
 ?>
 
