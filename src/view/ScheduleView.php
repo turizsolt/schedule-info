@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <title>Schedule</title>
     <link href="/src/view/style/style.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="refresh" content="5;url=" />
 </head>
 <body>
 
-<pre id="info-screen"><?php
-        require_once('mb_pad_str.php');
-
+<div id="stop-name"><?=$stopName?></div>
+<div id="info-screen"><?php
         foreach($departures as $departure) {
-            printf("% -4s %s %2s'<br />",
-                $departure['line'],
-                mb_str_pad($departure['destination'], 16),
-                $departure['in']
-            );
-        }
-    ?></pre>
+            if($departure['in'] == 0) { ?>
+            <div class="screen-row">
+                <div class="screen-cell-line"><?=$departure['line']?></div>
+                <div class="screen-cell-destination flash"><?=$departure['destination']?></div>
+                <div class="screen-cell-in">&nbsp;</div>
+            </div>
+        <?php } else { ?>
+            <div class="screen-row">
+                <div class="screen-cell-line"><?=$departure['line']?></div>
+                <div class="screen-cell-destination"><?=$departure['destination']?></div>
+                <div class="screen-cell-in"><?=$departure['in']?>'</div>
+            </div>
+        <?php }
+            }
+    ?></div>
 </body>
 </html>

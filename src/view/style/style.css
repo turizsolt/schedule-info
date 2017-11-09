@@ -12,4 +12,45 @@ html {
     font-size: 24px;
     color: orange;
     margin-left: 1em;
+    display: table;
+}
+
+#stop-name {
+    font-family: dotMatrix;
+    font-size: 36px;
+    color: orange;
+    margin-left: 0.66em;
+}
+
+.screen-row {
+    display: table-row;
+}
+
+.screen-cell-destination, .screen-cell-in, .screen-cell-line {
+    display: table-cell;
+}
+
+.screen-cell-line {
+    width: 3em;
+    text-align: left;
+}
+
+.screen-cell-destination {
+    width: 10em;
+    text-align: left;
+}
+
+.screen-cell-in {
+    width: 2em;
+    text-align: right;
+}
+
+.flash {
+    animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+    20% { opacity: 1; }
+    50% { opacity: 0; }
+    80% { opacity: 1; }
 }
